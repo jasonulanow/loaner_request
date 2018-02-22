@@ -34,11 +34,12 @@
 		gs.addErrorMessage('End date must be later than start date!');
 		current.setAbortAction(true);
 	}
-	//set to make sure start date is in the future
-// 	else if (current.start_date <= gs.{
-// 		gs.addErrorMessage('Start date must be a future date!');
-// 		current.setAbortAction(true);
-// 	}
+
+	var today = new GlideDate().getDisplayValue();
+	if (current.start_date <= today && current.start_date != ''){
+		gs.addErrorMessage('Start date must be a future date!');
+		current.setAbortAction(true);
+	}
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -46,7 +47,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>490fcfbb649413007f44bd43336e9406</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Set Start and End Dates</sys_name>
         <sys_overrides/>
         <sys_package display_value="Loaner Request" source="x_snc_loaner_reque">610d3ae764d013007f44bd43336e9419</sys_package>
@@ -54,7 +55,7 @@
         <sys_scope display_value="Loaner Request">610d3ae764d013007f44bd43336e9419</sys_scope>
         <sys_update_name>sys_script_490fcfbb649413007f44bd43336e9406</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-02-22 15:31:32</sys_updated_on>
+        <sys_updated_on>2018-02-22 18:09:30</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
